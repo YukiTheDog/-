@@ -1,0 +1,382 @@
+<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Чек‑лист заказа №121356 — рыбнаятема.рф</title>
+  <style>
+    :root{
+      --bg:#0b0c0f;--paper:#12141a;--ink:#e8e9ec;--muted:#9aa3af;--brand:#4f46e5;--ok:#22c55e;--warn:#f59e0b;--bad:#ef4444;--line:#232634;
+      --accent:#1f2937;--chip:#1b1f2a;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;background:var(--bg);color:var(--ink);font:14px/1.4 system-ui,-apple-system,Segoe UI,Roboto,"Inter","SF Pro Text",Arial,sans-serif}
+    .wrap{max-width:1100px;margin:24px auto;padding:0 16px}
+    header{display:grid;gap:12px;grid-template-columns:1fr auto;align-items:center;margin-bottom:16px}
+    h1{font-size:22px;margin:0}
+    .badges{display:flex;flex-wrap:wrap;gap:8px}
+    .badge{background:var(--chip);border:1px solid var(--line);padding:6px 10px;border-radius:999px;color:var(--muted)}
+    .grid{display:grid;gap:12px;grid-template-columns:repeat(12,1fr)}
+    .card{background:var(--paper);border:1px solid var(--line);border-radius:14px;padding:12px}
+    .card h3{margin:0 0 8px;font-size:13px;color:var(--muted);font-weight:600;letter-spacing:.02em;text-transform:uppercase}
+    .kv{display:grid;gap:6px}
+    .kv div{display:flex;gap:8px;align-items:center}
+    .kv .k{flex:0 0 140px;color:var(--muted)}
+    .kv .v{flex:1}
+    .controls{display:flex;flex-wrap:wrap;gap:8px}
+    button,.btn{background:transparent;border:1px solid var(--line);color:var(--ink);padding:8px 12px;border-radius:10px;cursor:pointer}
+    button:hover{border-color:#334155}
+    .primary{background:var(--brand);border-color:transparent}
+    .ok{background:var(--ok);border-color:transparent}
+    .ghost{background:var(--chip)}
+    .search{display:flex;gap:8px}
+    input[type="text"], input[type="number"], select{background:#0e1117;border:1px solid var(--line);color:var(--ink);padding:8px 10px;border-radius:10px;outline:none}
+    input[type="text"]{min-width:260px}
+    .toolbar{display:flex;flex-wrap:wrap;gap:8px;align-items:center}
+
+    table{width:100%;border-collapse:separate;border-spacing:0 8px}
+    thead th{font-size:12px;color:var(--muted);text-align:left;padding:6px 8px}
+    tbody tr{background:var(--paper);border:1px solid var(--line)}
+    tbody td{padding:10px 8px;vertical-align:middle}
+    tbody tr{border-radius:12px;overflow:hidden}
+    tbody tr td:first-child{border-top-left-radius:12px;border-bottom-left-radius:12px}
+    tbody tr td:last-child{border-top-right-radius:12px;border-bottom-right-radius:12px}
+    .name{font-weight:600}
+    .sku{color:var(--muted);font-size:12px}
+    .qtycell{white-space:nowrap}
+    .sumcell{font-weight:700}
+    .note{width:100%}
+    .strike{opacity:.55;text-decoration:line-through}
+    .diff{background:rgba(245,158,11,.12);border-radius:8px;padding:2px 6px}
+
+    .footer{display:flex;flex-wrap:wrap;gap:12px;align-items:center;justify-content:space-between;margin-top:14px}
+    .progress{position:relative;background:#0e1117;border:1px solid var(--line);border-radius:999px;height:10px;flex:1;min-width:200px}
+    .bar{position:absolute;left:0;top:0;bottom:0;background:linear-gradient(90deg,var(--brand),#06b6d4);border-radius:999px;width:0}
+    .progress-label{min-width:180px;text-align:right;color:var(--muted);font-size:12px}
+
+    .totals{display:flex;gap:18px;flex-wrap:wrap}
+    .totals .card{min-width:240px}
+    .tot{display:flex;justify-content:space-between;padding:6px 0;border-bottom:1px dashed var(--line)}
+    .tot:last-child{border-bottom:none}
+    .grand{font-size:18px;font-weight:800}
+
+    .sticky{position:sticky;top:0;background:linear-gradient(180deg, rgba(11,12,15,.92), rgba(11,12,15,.7));backdrop-filter: blur(6px);padding:10px 12px;border:1px solid var(--line);border-radius:14px;z-index:5}
+
+    @media (max-width:880px){
+      .grid{grid-template-columns:1fr}
+      .kv .k{flex:0 0 120px}
+      thead{display:none}
+      table,tbody,tr,td{display:block;width:100%}
+      tbody tr{margin-bottom:10px}
+      tbody td{display:flex;justify-content:space-between;gap:10px}
+      tbody td:before{content:attr(data-th);color:var(--muted)}
+      .note{width:100%}
+    }
+
+    @media print{
+      body{background:#fff;color:#000}
+      .card, table tbody tr{border-color:#ddd}
+      .sticky, .toolbar, .controls, .footer .btn, .footer .primary, .footer .ok{display:none !important}
+      .wrap{max-width:none;margin:0;padding:0}
+      .badge{border-color:#ddd;color:#333}
+      a{color:#000;text-decoration:none}
+    }
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <header>
+      <h1>Чек‑лист заказа №121356</h1>
+      <div class="badges">
+        <span class="badge">рыбнаятема.рф</span>
+        <span class="badge" id="statusBadge">0 из 0 отмечено</span>
+      </div>
+    </header>
+
+    <div class="grid">
+      <section class="card" style="grid-column: span 7;">
+        <h3>Получатель и доставка</h3>
+        <div class="kv">
+          <div><div class="k">Способ доставки</div><div class="v" id="delivery">Для физ.лиц бесплатно от 8000р (до подъезда)</div></div>
+          <div><div class="k">Адрес</div><div class="v" id="address">Голицыно Керамика 82</div></div>
+          <div><div class="k">E‑mail</div><div class="v" id="email"><a href="mailto:kraartur22@gmail.com">kraartur22@gmail.com</a></div></div>
+          <div><div class="k">Телефон</div><div class="v" id="phone"><a href="tel:89264043854">8 926 404 38 54</a></div></div>
+          <div><div class="k">Комментарий</div><div class="v" id="comment">После 17.30 и за ранее позвонить</div></div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: span 5;">
+        <h3>Итоги</h3>
+        <div class="totals">
+          <div class="card" style="flex:1">
+            <div class="tot"><div>Сумма товаров</div><div id="subtotal">—</div></div>
+            <div class="tot"><div>Доставка</div><div id="shipping">0 ₽</div></div>
+            <div class="tot grand"><div>К оплате</div><div id="grand">—</div></div>
+          </div>
+          <div class="card" style="flex:1">
+            <div class="tot"><div>Принято на сумму</div><div id="acceptedSum">—</div></div>
+            <div class="tot"><div>Осталось позиций</div><div id="leftCount">—</div></div>
+            <div class="tot"><div>Всего позиций</div><div id="totalCount">—</div></div>
+          </div>
+        </div>
+      </section>
+
+      <section class="card sticky" style="grid-column: 1 / -1;">
+        <div class="toolbar">
+          <div class="search">
+            <input id="search" type="text" placeholder="Поиск: товар или артикул…" />
+            <label style="display:flex;align-items:center;gap:6px;color:var(--muted)"><input id="onlyOpen" type="checkbox"/> Показывать только неотмеченные</label>
+          </div>
+          <div class="controls" style="margin-left:auto">
+            <button id="checkAll" class="ghost">Отметить все</button>
+            <button id="uncheckAll" class="ghost">Снять все</button>
+            <button id="exportCsv" class="ghost">Экспорт CSV</button>
+            <button id="print" class="primary">Печать</button>
+          </div>
+        </div>
+      </section>
+
+      <section class="card" style="grid-column: 1 / -1;">
+        <h3>Состав заказа</h3>
+        <div class="progress" aria-hidden="true"><div class="bar" id="bar"></div></div>
+        <div style="height:8px"></div>
+        <table>
+          <thead>
+            <tr>
+              <th style="width:42px"><input type="checkbox" id="toggleHead" title="Отметить/снять всё"/></th>
+              <th>Товар</th>
+              <th>Артикул</th>
+              <th>Кол‑во</th>
+              <th>Цена</th>
+              <th>Сумма</th>
+              <th>Принято</th>
+              <th>Заметка</th>
+            </tr>
+          </thead>
+          <tbody id="tbody"></tbody>
+        </table>
+        <div class="footer">
+          <div class="controls">
+            <button id="checkVisible" class="ok">Отметить видимые</button>
+            <button id="uncheckVisible" class="ghost">Снять видимые</button>
+          </div>
+          <div class="progress-label" id="progressLabel">0% выполнено</div>
+        </div>
+      </section>
+    </div>
+  </div>
+
+  <script>
+  const fmt = new Intl.NumberFormat('ru-RU',{style:'currency',currency:'RUB',maximumFractionDigits:2});
+
+  const ORDER = {
+    id: '121356',
+    site: 'рыбнаятема.рф',
+    delivery: 'Для физ.лиц бесплатно от 8000р (до подъезда)',
+    customer: {
+      address: 'Голицыно Керамика 82',
+      email: 'kraartur22@gmail.com',
+      phone: '89264043854',
+      comment: 'После 17.30 и за ранее позвонить'
+    },
+    items: [
+      {name:'Сазан сушеный соломка в/у Премиум 500г', sku:'11713', qty:3, unit:'шт', price:150.00},
+      {name:'Соевая закуска "Хуан Пэнфей" со вкусом лобстера 20гр', sku:'34735', qty:5, unit:'шт', price:15.00},
+      {name:'Соевая закуска "Хуан Пэнфей" со вкусом жгучей креветки 20гр', sku:'34693', qty:5, unit:'шт', price:15.00},
+      {name:'Соевая закуска "Хуан Пэнфей" АКУЛА 20гр', sku:'34870', qty:5, unit:'шт', price:15.00},
+      {name:'Чипсы YOKEE Yamchip Оригинальные 33г', sku:'34953', qty:5, unit:'шт', price:28.50},
+      {name:'Соевая закуска "Хуан Пэнфей" Со вкусом "Утиные кусочки" 20гр', sku:'35010', qty:5, unit:'шт', price:15.00},
+      {name:'Чипсы YOKEE Yamchip Нори 33г', sku:'34954', qty:5, unit:'шт', price:28.50},
+      {name:'Чипсы YOKEE Yamchip Барбекю 33г', sku:'34951', qty:5, unit:'шт', price:28.50},
+      {name:'Снек "Серебристой Щуки" премиум палочки сушено-вяленые (Южный берег) 500г', sku:'35341', qty:1, unit:'шт', price:610.00},
+      {name:'Вобла (КРУПНАЯ)', sku:'10040', qty:1, unit:'кг', price:840.00},
+      {name:'Лещ вяленый (Астраханский)', sku:'10062', qty:1, unit:'кг', price:215.00},
+      {name:'Камбала Ерш СУХАЯ', sku:'14189', qty:1, unit:'кг', price:1150.00},
+      {name:'КАМБАЛА С ИКРОЙ ВЯЛЕНАЯ', sku:'10053', qty:1, unit:'кг', price:1180.00},
+      {name:'Чипсы из семги (круглые)', sku:'13241', qty:1, unit:'кг', price:788.00},
+      {name:'Рваный кальмар по-шанхайски (Астраханкина)', sku:'12726', qty:1, unit:'кг', price:1699.00},
+      {name:'Арахис в хрустящей глазури "ТОМ ЯМ" Новый восток', sku:'13104', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "МОРСКОЕ АССОРТИ" Новый восток', sku:'13105', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "БУЖЕНИНА с Чесноком" Новый восток', sku:'13102', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "Холодец / хрен" Новый восток', sku:'10944', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "Васаби" Новый восток', sku:'10921', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "Четыре сыра" Новый восток', sku:'10931', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "Барбекю" Новый восток', sku:'10920', qty:1, unit:'кг', price:335.00},
+      {name:'Арахис в хрустящей глазури "Сметана-зелень" Новый восток', sku:'10927', qty:1, unit:'кг', price:335.00},
+      {name:'Чипсы хлебные Лутовские "Крылышки барбекю"', sku:'14159', qty:1, unit:'кг', price:405.00},
+      {name:'Гренки пшеничные "Крылышки барбекю" Лутовские', sku:'13653', qty:1, unit:'кг', price:425.00},
+      {name:'Гренки пшеничные "Паприка с чесноком" Лутовские', sku:'10226', qty:1, unit:'кг', price:374.00},
+      {name:'Гренки пшеничные "Тайский перец" Лутовские', sku:'10235', qty:1, unit:'кг', price:390.00},
+      {name:'Контейнер "ракушка" 250мл (100шт)', sku:'11193', qty:2, unit:'шт', price:590.00},
+      {name:'Стакан 0,5 (50шт/упак)', sku:'11230', qty:1, unit:'шт', price:150.00},
+      {name:'Контейнер для снеков (3л)', sku:'11205', qty:3, unit:'шт', price:152.00},
+      {name:'Сыр Копченый "Охотничий" Дондуковский', sku:'11857', qty:1, unit:'кг', price:627.00},
+      {name:'Сыр Пряди (белые) Дондуковский', sku:'11866', qty:1, unit:'кг', price:627.00},
+      {name:'Сыр Дондуковский весовой Зелень / чеснок', sku:'11853', qty:1, unit:'кг', price:627.00},
+      {name:'Гренки барные Чеснок', sku:'10176', qty:1, unit:'кг', price:300.00},
+      {name:'Гренки барные Холодец-хрен', sku:'10175', qty:1, unit:'кг', price:300.00},
+      {name:'Гренки барные Аджика', sku:'10161', qty:1, unit:'кг', price:300.00},
+      {name:'Гренки барные Бекон', sku:'10164', qty:1, unit:'кг', price:300.00},
+      {name:'Чипсы из картофеля "Картошечка" со вкусом сметаны и лука 75г', sku:'13960', qty:5, unit:'шт', price:75.00},
+      {name:'Армянские лавашики Тайский перец', sku:'12301', qty:1, unit:'кг', price:320.00},
+      {name:'Армянские лавашики Холодец-хрен', sku:'12303', qty:1, unit:'кг', price:320.00},
+      {name:'Армянские лавашики Чеснок-укроп', sku:'12304', qty:1, unit:'кг', price:320.00},
+      {name:'Армянские лавашики Шашлык', sku:'12305', qty:1, unit:'кг', price:320.00},
+      {name:'Армянские лавашики Аджика', sku:'12290', qty:1, unit:'кг', price:320.00},
+      {name:'Сырные шарики "Тайский перец" 500г', sku:'11890', qty:1, unit:'шт', price:649.00},
+      {name:'Сырные шарики "Бекон" 500г', sku:'11879', qty:1, unit:'шт', price:649.00},
+      {name:'Икра воблы вяленая в оболочке 500г', sku:'35219', qty:2, unit:'шт', price:590.00},
+    ],
+    shipping: 0
+  };
+
+  const STORAGE_KEY = 'checklist-' + ORDER.id + '-v1';
+  let state = { checked:{}, accepted:{}, notes:{} };
+
+  function load(){
+    try{ const saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); if(saved) state = saved; }catch(e){}
+  }
+  function save(){ localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); }
+
+  function rowTemplate(item){
+    const id = 'row-' + item.sku;
+    const checked = !!state.checked[item.sku];
+    const acc = state.accepted[item.sku] ?? item.qty;
+    const note = state.notes[item.sku] ?? '';
+    const sum = item.qty * item.price;
+    const diff = Number(acc) !== Number(item.qty);
+    const step = item.unit === 'шт' ? 1 : 0.001;
+    return `
+      <tr data-name="${item.name.toLowerCase()}" data-sku="${item.sku}" data-sum="${sum}" ${checked?"data-checked='1'":""}>
+        <td data-th="✓"><input type="checkbox" class="tick" data-sku="${item.sku}" ${checked?"checked":""} /></td>
+        <td data-th="Товар">
+          <div class="name ${checked?"strike":""}">${item.name}</div>
+          <div class="sku">Артикул: ${item.sku}</div>
+        </td>
+        <td data-th="Артикул">${item.sku}</td>
+        <td data-th="Кол‑во" class="qtycell">${item.qty} ${item.unit}</td>
+        <td data-th="Цена">${fmt.format(item.price)}</td>
+        <td data-th="Сумма" class="sumcell">${fmt.format(sum)}</td>
+        <td data-th="Принято">
+          <input type="number" class="accepted" data-sku="${item.sku}" value="${acc}" min="0" step="${step}" style="width:90px" />
+          ${diff?`<span class="diff" title="Принято отличается от заказа">≠ ${acc}</span>`:''}
+        </td>
+        <td data-th="Заметка"><input type="text" class="note note-input" data-sku="${item.sku}" value="${note}" placeholder="Комментарий"/></td>
+      </tr>`;
+  }
+
+  function render(){
+    const tbody = document.getElementById('tbody');
+    const q = document.getElementById('search').value.trim().toLowerCase();
+    const onlyOpen = document.getElementById('onlyOpen').checked;
+
+    const rows = [];
+    let visible = 0; let marked = 0; let sumAccepted = 0; let totalItems = ORDER.items.length;
+
+    ORDER.items.forEach(it=>{
+      const match = !q || it.name.toLowerCase().includes(q) || (it.sku+'').includes(q);
+      const isChecked = !!state.checked[it.sku];
+      if(match && (!onlyOpen || !isChecked)){
+        rows.push(rowTemplate(it));
+        visible++;
+      }
+      if(isChecked) marked++;
+      const acceptedQty = Number(state.accepted[it.sku] ?? it.qty) || 0;
+      sumAccepted += acceptedQty * it.price;
+    });
+    tbody.innerHTML = rows.join('');
+
+    const subtotal = ORDER.items.reduce((s,i)=>s+i.qty*i.price,0);
+    document.getElementById('subtotal').textContent = fmt.format(subtotal);
+    document.getElementById('grand').textContent = fmt.format(subtotal + (ORDER.shipping||0));
+    document.getElementById('acceptedSum').textContent = fmt.format(sumAccepted);
+    document.getElementById('leftCount').textContent = (totalItems - marked).toString();
+    document.getElementById('totalCount').textContent = totalItems.toString();
+
+    const pct = totalItems? Math.round(marked/totalItems*100) : 0;
+    document.getElementById('progressLabel').textContent = pct + '% выполнено';
+    document.getElementById('statusBadge').textContent = `${marked} из ${totalItems} отмечено`;
+    document.getElementById('bar').style.width = pct + '%';
+
+    bindRowEvents();
+  }
+
+  function bindRowEvents(){
+    document.querySelectorAll('.tick').forEach(chk=>{
+      chk.addEventListener('change', e=>{
+        const sku = e.target.getAttribute('data-sku');
+        state.checked[sku] = e.target.checked;
+        save();
+        render();
+      });
+    });
+    document.querySelectorAll('.accepted').forEach(inp=>{
+      inp.addEventListener('input', e=>{
+        const sku = e.target.getAttribute('data-sku');
+        let val = e.target.value.replace(',','.');
+        state.accepted[sku] = val === '' ? 0 : Number(val);
+        save();
+        // do not re-render whole table on every keystroke to keep cursor position
+        const subtotal = ORDER.items.reduce((s,i)=>s+i.qty*i.price,0);
+        const sumAccepted = ORDER.items.reduce((s,i)=> s + (Number(state.accepted[i.sku] ?? i.qty)||0) * i.price, 0);
+        document.getElementById('acceptedSum').textContent = fmt.format(sumAccepted);
+      });
+      inp.addEventListener('change', ()=>render());
+    });
+    document.querySelectorAll('.note-input').forEach(inp=>{
+      inp.addEventListener('input', e=>{
+        const sku = e.target.getAttribute('data-sku');
+        state.notes[sku] = e.target.value; save();
+      });
+    });
+  }
+
+  function toggleAll(checked, onlyVisible=false){
+    const scope = onlyVisible ? document.querySelectorAll('#tbody .tick') : null;
+    ORDER.items.forEach(it=>{
+      if(onlyVisible){
+        const row = Array.from(scope).find(x=>x.getAttribute('data-sku')===it.sku);
+        if(row) state.checked[it.sku] = checked;
+      } else {
+        state.checked[it.sku] = checked;
+      }
+    });
+    save();
+    render();
+  }
+
+  function exportCSV(){
+    const rows = [
+      ['Артикул','Товар','Заказано','Ед.','Цена','Сумма','Принято','Заметка','Отмечено']
+    ];
+    ORDER.items.forEach(it=>{
+      const acc = state.accepted[it.sku] ?? it.qty;
+      const note = (state.notes[it.sku] ?? '').replace(/\n/g,' ');
+      const marked = state.checked[it.sku] ? 'Да' : 'Нет';
+      rows.push([it.sku, it.name, it.qty, it.unit, it.price, (it.qty*it.price).toFixed(2), acc, note, marked]);
+    });
+    const csv = '\uFEFF' + rows.map(r=>r.map(x=>`"${String(x).replace(/"/g,'""')}"`).join(';')).join('\n');
+    const blob = new Blob([csv],{type:'text/csv;charset=utf-8;'});
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url; a.download = `checklist_${ORDER.id}.csv`; a.click();
+    URL.revokeObjectURL(url);
+  }
+
+  // Init
+  load();
+  document.getElementById('search').addEventListener('input', render);
+  document.getElementById('onlyOpen').addEventListener('change', render);
+  document.getElementById('print').addEventListener('click', ()=>window.print());
+  document.getElementById('exportCsv').addEventListener('click', exportCSV);
+  document.getElementById('checkAll').addEventListener('click', ()=>toggleAll(true));
+  document.getElementById('uncheckAll').addEventListener('click', ()=>toggleAll(false));
+  document.getElementById('checkVisible').addEventListener('click', ()=>toggleAll(true,true));
+  document.getElementById('uncheckVisible').addEventListener('click', ()=>toggleAll(false,true));
+  document.getElementById('toggleHead').addEventListener('change', e=>toggleAll(e.target.checked,true));
+
+  render();
+  </script>
+</body>
+</html>
